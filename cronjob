@@ -1,0 +1,2 @@
+# run every 12 hours
+*/1 * * * * root cd /app && python hello.py

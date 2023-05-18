@@ -1,0 +1,15 @@
+version: '3'
+services:
+  myservice:
+    image: 'rjdeck/mmd-bitbug'
+    build:
+      context: '.'
+      dockerfile: Dockerfile
+    ports:
+      - '5000:5000'
+    environment:
+      BLOCKCHAIR_API_KEY: ${BLOCKCHAIR_API_KEY}
+      DATABASE_USER_URL: ${DATABASE_USER_URL}
+      DATABASE_TX_URL: ${DATABASE_TX_URL}
+    volumes:
+      - ./cronjob:/etc/cron.d/cronjob
