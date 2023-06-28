@@ -21,7 +21,7 @@ def bit_crawl_blocks():
     # Create last crawled block height file if it does not exist
     if not os.path.exists('bit_last_crawled_block_height.txt'):
         with open('bit_last_crawled_block_height.txt', 'w') as f:
-            f.write(str(current_block_height-3))
+            f.write(str(current_block_height-20))
 
     # Load last crawled block height from file
     with open('bit_last_crawled_block_height.txt', 'r+') as f:

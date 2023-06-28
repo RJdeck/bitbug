@@ -1,2 +1,0 @@
-# run every 12 hours
-*/1 * * * * root cd /app && python bit_main.py

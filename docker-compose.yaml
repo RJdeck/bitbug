@@ -1,15 +1,16 @@
 version: '3'
+
 services:
-  myservice:
-    image: 'rjdeck/mmd-bitbug'
+  server:
+    image: 'rjdeck/bitcoin-cornjob'
     build:
       context: '.'
-      dockerfile: Dockerfile
+      dockerfile: 'Dockerfile'
     ports:
       - '5000:5000'
     environment:
-      BLOCKCHAIR_API_KEY: ${BLOCKCHAIR_API_KEY}
-      DATABASE_USER_URL: ${DATABASE_USER_URL}
-      DATABASE_TX_URL: ${DATABASE_TX_URL}
+      - DATABASE_USER_URL=${DATABASE_USER_URL}
+      - DATABASE_TX_URL=${DATABASE_TX_URL}
+      - BLOCKCHAIR_API_KEY=${BLOCKCHAIR_API_KEY}
     volumes:
-      - ./cronjob:/etc/cron.d/cronjob
+      - './:/app'
